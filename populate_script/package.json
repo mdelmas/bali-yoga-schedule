@@ -14,5 +14,8 @@
   "dependencies": {
     "firebase-admin": "^12.6.0",
     "minimist": "^1.2.8"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.1"
   }
 }

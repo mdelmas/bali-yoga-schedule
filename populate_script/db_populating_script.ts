@@ -8,10 +8,10 @@ const mode = argv.mode;
 
 // Read config files
 const readJSONFile = (url) =>
-  JSON.parse(fs.readFileSync(new URL(url, import.meta.url)));
+  JSON.parse(fs.readFileSync(new URL(url, import.meta.url)).toString());
 
-const serviceAccount = readJSONFile("../config/serviceAccountKey.json");
-const firebaseConfig = readJSONFile("../config/firebaseConfig.json");
+const serviceAccount = readJSONFile("./config/serviceAccountKey.json");
+const firebaseConfig = readJSONFile("./config/firebaseConfig.json");
 
 // initialize db connection
 admin.initializeApp({
