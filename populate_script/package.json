@@ -1,0 +1,18 @@
+{
+  "name": "populate_script",
+  "version": "1.0.0",
+  "main": "db_populating_script.js",
+  "type": "module",
+  "scripts": {
+    "play": "node db_populating_script.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "minimist": "^1.2.8"
+  }
+}
