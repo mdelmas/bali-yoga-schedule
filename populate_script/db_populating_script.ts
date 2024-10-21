@@ -10,13 +10,13 @@ const mode = argv.mode;
 const readJSONFile = (url) =>
   JSON.parse(fs.readFileSync(new URL(url, import.meta.url)).toString());
 
-const serviceAccount = readJSONFile("./config/serviceAccountKey.json");
+const serviceAccountKey = readJSONFile("./config/serviceAccountKey.json");
 const firebaseConfig = readJSONFile("./config/firebaseConfig.json");
 
 // initialize db connection
 admin.initializeApp({
   ...firebaseConfig,
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert(serviceAccountKey),
 });
 const db = admin.firestore();
 
