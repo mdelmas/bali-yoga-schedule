@@ -1,5 +1,5 @@
 import Button from "./Button";
-import { ButtonType } from "./ButtonParameters";
+import { ButtonSize, ButtonType } from "./ButtonParameters";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -12,6 +12,14 @@ const meta: Meta<typeof Button> = {
       control: {
         type: "select",
         labels: Object.keys(ButtonType),
+      },
+    },
+    size: {
+      options: Object.values(ButtonSize),
+      mapping: Object.values(ButtonSize),
+      control: {
+        type: "select",
+        labels: Object.keys(ButtonSize),
       },
     },
   },

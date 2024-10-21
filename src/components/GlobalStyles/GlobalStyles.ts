@@ -53,7 +53,6 @@ html {
   --colors-blackblue: ${COLORS.blackblue};
   --colors-lightblackblue: ${COLORS.lightblackblue};
 
-
   --font-weight-light: ${WEIGHTS.light};
   --font-weight-normal: ${WEIGHTS.normal};
   --font-weight-medium: ${WEIGHTS.medium};
@@ -69,6 +68,7 @@ html {
 *:before,
 *:after {
   box-sizing: border-box;
+
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }

@@ -1,7 +1,7 @@
 export const COLORS = {
   offwhite: "hsla(51, 64%, 98%, 1)",
   blackblue: "hsla(263, 15%, 24%, 1)",
-  lightblackblue: "hsla(263, 15%, 24%, 0.05)",
+  lightblackblue: "hsla(263, 15%, 24%, 0.1)",
 };
 
 export const WEIGHTS = {
