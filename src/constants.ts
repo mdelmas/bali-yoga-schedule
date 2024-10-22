@@ -1,6 +1,12 @@
 export const COLORS = {
   offwhite: "hsla(51, 64%, 98%, 1)",
-  blackblue: "hsla(263, 15%, 24%, 1)",
+  blackblue: {
+    300: "hsla(263, 15%, 35%, 1)",
+    400: "hsla(263, 15%, 30%, 1)",
+    500: "hsla(263, 15%, 25%, 1)",
+    600: "hsla(263, 15%, 20%, 1)",
+    700: "hsla(263, 15%, 15%, 1)",
+  },
   lightblackblue: "hsla(263, 15%, 24%, 0.1)",
 };
 
