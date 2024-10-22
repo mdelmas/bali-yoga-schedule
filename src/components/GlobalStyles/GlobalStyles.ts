@@ -50,7 +50,7 @@ table {
 /* DESIGN TOKENS */
 html {
   --colors-offwhite: ${COLORS.offwhite};
-  --colors-blackblue: ${COLORS.blackblue};
+  --colors-blackblue: ${COLORS.blackblue[500]};
   --colors-lightblackblue: ${COLORS.lightblackblue};
 
   --font-weight-light: ${WEIGHTS.light};
