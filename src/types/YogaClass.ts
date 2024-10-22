@@ -8,3 +8,14 @@ export interface YogaClass {
   city: string;
   price: string;
 }
+
+export interface FormattedYogaClass {
+  id: string;
+  time: Date;
+  length: number;
+  name: string;
+  studio: string;
+  city: string;
+  price: number;
+  url: string;
+}

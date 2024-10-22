@@ -61,7 +61,7 @@ const OutlinedButton = styled(StyledButton)`
   color: ${COLORS.blackblue};
   background-color: transparent;
 
-  box-shadow: inset 0 0 0 1.2px ${COLORS.blackblue};
+  box-shadow: inset 0 0 0 1.2px ${COLORS.blackblue[500]};
 `;
 
 const ClearButton = styled(StyledButton)``;
