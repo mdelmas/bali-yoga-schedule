@@ -7,7 +7,7 @@ export const COLORS = {
     600: "hsla(263, 15%, 20%, 1)",
     700: "hsla(263, 15%, 15%, 1)",
   },
-  lightblackblue: "hsla(263, 15%, 24%, 0.1)",
+  lightblackblue: "hsla(263, 15%, 25%, 0.025)",
 };
 
 export const WEIGHTS = {

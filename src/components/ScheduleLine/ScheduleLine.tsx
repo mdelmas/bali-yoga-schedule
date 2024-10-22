@@ -1,16 +1,15 @@
-import React from "react";
 import styled from "styled-components";
 import { COLORS, WEIGHTS } from "../../constants";
 
 function ScheduleLine({
   time,
-  length,
+  duration,
   name,
   studio,
   url,
 }: {
   time: Date;
-  length: number;
+  duration: number;
   name: string;
   studio: string;
   url: string;
@@ -25,7 +24,7 @@ function ScheduleLine({
             hour12: true,
           })}
         </Time>
-        <Length>{length}’</Length>
+        <Duration>{duration}’</Duration>
       </TimeWrapper>
 
       <Name>{name}</Name>
@@ -39,7 +38,7 @@ const ScheduleLineWrapper = styled.a`
   align-items: center;
   gap: 32px;
 
-  padding: 4px 24px;
+  padding: 4px 8px;
   border-radius: 32px;
 
   &:hover {
@@ -50,16 +49,20 @@ const ScheduleLineWrapper = styled.a`
 const TimeWrapper = styled.div`
   display: flex;
 
-  gap: 16px;
+  gap: 8px;
 `;
 
 const Time = styled.span`
   font-size: ${12 / 16}rem;
   font-weight: ${WEIGHTS.light};
+
+  width: 64px;
+
+  text-align: right;
 `;
 
-const Length = styled.span`
-  padding: 2px 8px;
+const Duration = styled.span`
+  padding: 2px 0px;
   border-radius: 20px;
 
   box-shadow: inset 0 0 0 1px ${COLORS.blackblue[500]};
@@ -68,9 +71,8 @@ const Length = styled.span`
   font-size: ${10 / 16}rem;
   font-weight: ${WEIGHTS.medium};
 
-  height: max-content;
-
-  align-self: center;
+  text-align: center;
+  width: 32px;
 `;
 
 const Name = styled.span`
@@ -79,13 +81,14 @@ const Name = styled.span`
 
   flex: 2;
 `;
+
 const Studio = styled.span`
   font-size: ${14 / 16}rem;
   font-weight: ${WEIGHTS.light};
   font-style: italic;
 
   flex: 1;
-  max-width: 120px;
+  max-width: 128px;
 `;
 
 export default ScheduleLine;
