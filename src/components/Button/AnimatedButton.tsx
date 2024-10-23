@@ -120,7 +120,7 @@ const FilledButton = styled(StyledButton)`
 `;
 
 const LightFilledButton = styled(StyledButton)`
-  background-color: ${COLORS.lightblackblue};
+  background-color: ${COLORS.lightblackblue[500]};
 `;
 
 const OutlinedButton = styled(StyledButton)`

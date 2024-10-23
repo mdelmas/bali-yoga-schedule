@@ -44,17 +44,21 @@ const StyledButton = styled.button<{
 
 const FilledButton = styled(StyledButton)`
   color: ${COLORS.offwhite};
-  background-color: ${COLORS.blackblue};
+  background-color: ${COLORS.blackblue[500]};
 
-  &:hover {
-  }
   &:hover,
   &:focus {
+    background-color: ${COLORS.blackblue[400]};
   }
 `;
 
 const LightFilledButton = styled(StyledButton)`
-  background-color: ${COLORS.lightblackblue};
+  background-color: ${COLORS.lightblackblue[500]};
+
+  &:hover,
+  &:focus {
+    background-color: ${COLORS.lightblackblue[700]};
+  }
 `;
 
 const OutlinedButton = styled(StyledButton)`
@@ -62,8 +66,18 @@ const OutlinedButton = styled(StyledButton)`
   background-color: transparent;
 
   box-shadow: inset 0 0 0 1.2px ${COLORS.blackblue[500]};
+
+  &:hover,
+  &:focus {
+    background-color: ${COLORS.lightblackblue[300]};
+  }
 `;
 
-const ClearButton = styled(StyledButton)``;
+const ClearButton = styled(StyledButton)`
+  &:hover,
+  &:focus {
+    background-color: ${COLORS.lightblackblue[300]};
+  }
+`;
 
 export default Button;

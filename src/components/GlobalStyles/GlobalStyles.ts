@@ -51,7 +51,7 @@ table {
 html {
   --colors-offwhite: ${COLORS.offwhite};
   --colors-blackblue: ${COLORS.blackblue[500]};
-  --colors-lightblackblue: ${COLORS.lightblackblue};
+  --colors-lightblackblue: ${COLORS.lightblackblue[500]};
 
   --font-weight-light: ${WEIGHTS.light};
   --font-weight-normal: ${WEIGHTS.normal};

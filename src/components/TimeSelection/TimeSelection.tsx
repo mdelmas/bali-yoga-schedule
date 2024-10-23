@@ -71,7 +71,7 @@ const TimeSelectionWrapper = styled.div`
   padding: 0px;
   gap: 0px;
 
-  background-color: ${COLORS.lightblackblue};
+  background-color: ${COLORS.lightblackblue[500]};
 `;
 
 const IconWrapper = styled.button`
@@ -82,10 +82,19 @@ const IconWrapper = styled.button`
   width: 32px;
   height: 32px;
 
+  border-radius: 32px;
+
   &.selected {
     color: ${COLORS.offwhite};
     background-color: ${COLORS.blackblue[500]};
-    border-radius: 32px;
+
+    &:hover {
+      background-color: ${COLORS.blackblue[400]};
+    }
+  }
+
+  &:hover:not(.selected) {
+    background-color: ${COLORS.lightblackblue[700]};
   }
 `;
 
