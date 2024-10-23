@@ -54,7 +54,7 @@ html {
   --colors-lightblackblue: ${COLORS.lightblackblue[500]};
 
   --font-weight-light: ${WEIGHTS.light};
-  --font-weight-normal: ${WEIGHTS.normal};
+  --font-weight-normal: ${WEIGHTS.regular};
   --font-weight-medium: ${WEIGHTS.medium};
   --font-weight-semibold: ${WEIGHTS.semibold};
   --font-weight-bold: ${WEIGHTS.bold};

@@ -57,7 +57,7 @@ const AnimatedButton = styled.button`
   overflow: hidden;
   background-color: ${COLORS.blackblue[500]};
 
-  border-radius: 32px;
+  border-radius: 10000px;
 `;
 
 const Text = styled(motion.p)`
@@ -79,7 +79,7 @@ const ColorLayover = styled(motion.span)`
   height: 50px;
   width: 50px;
 
-  border-radius: 100px;
+  border-radius: 10000px;
 
   top: 50%;
   left: 50%;
@@ -95,9 +95,9 @@ const StyledButton = styled.button<{
   padding: ${(props) =>
     props.size === ButtonSize.MEDIUM ? "8px 16px" : "6px 12px"};
 
-  border-radius: 32px;
+  border-radius: 10000px;
 
-  font-weight: ${WEIGHTS.normal};
+  font-weight: ${WEIGHTS.regular};
   font-size: ${(props) => {
     const pxSize = props.size === ButtonSize.MEDIUM ? 14 : 12;
     return pxSize / 16;

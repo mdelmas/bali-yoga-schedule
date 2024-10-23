@@ -1,24 +1,27 @@
-import { PropsWithChildren } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 import styled from "styled-components";
 import { COLORS, WEIGHTS } from "../../constants";
-import { ButtonType, ButtonSize } from "./ButtonParameters";
+import { ButtonVariant, ButtonSize } from "./ButtonParameters";
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  children: ReactNode;
+}
 
 function Button({
-  type = ButtonType.FILLED,
+  variant = ButtonVariant.FILLED,
   size = ButtonSize.MEDIUM,
   ...delegated
-}: PropsWithChildren<{
-  type?: ButtonType;
-  size?: ButtonSize;
-}>) {
-  switch (type) {
-    case ButtonType.FILLED:
+}: ButtonProps) {
+  switch (variant) {
+    case ButtonVariant.FILLED:
       return <FilledButton size={size} {...delegated} />;
-    case ButtonType.OUTLINED:
+    case ButtonVariant.OUTLINED:
       return <OutlinedButton size={size} {...delegated} />;
-    case ButtonType.LIGHT_FILLED:
+    case ButtonVariant.LIGHT_FILLED:
       return <LightFilledButton size={size} {...delegated} />;
-    case ButtonType.CLEAR:
+    case ButtonVariant.CLEAR:
       return <ClearButton size={size} {...delegated} />;
   }
 }
@@ -29,9 +32,9 @@ const StyledButton = styled.button<{
   padding: ${(props) =>
     props.size === ButtonSize.MEDIUM ? "8px 16px" : "6px 12px"};
 
-  border-radius: 32px;
+  border-radius: 10000px;
 
-  font-weight: ${WEIGHTS.normal};
+  font-weight: ${WEIGHTS.regular};
   font-size: ${(props) => {
     const pxSize = props.size === ButtonSize.MEDIUM ? 14 : 12;
     return pxSize / 16;

@@ -1,4 +1,4 @@
-export enum ButtonType {
+export enum ButtonVariant {
   FILLED = "filled",
   OUTLINED = "outlined",
   LIGHT_FILLED = "lightFilled",

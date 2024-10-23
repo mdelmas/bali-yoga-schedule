@@ -1,3 +1,4 @@
+import { Moment } from "moment";
 export interface YogaClass {
   id: string;
   date: string;
@@ -11,8 +12,8 @@ export interface YogaClass {
 
 export interface FormattedYogaClass {
   id: string;
-  time: Date;
-  length: number;
+  time: Moment;
+  duration: number;
   name: string;
   studio: string;
   city: string;

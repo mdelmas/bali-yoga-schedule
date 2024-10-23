@@ -1,17 +1,17 @@
 import Button from "./Button";
-import { ButtonSize, ButtonType } from "./ButtonParameters";
+import { ButtonSize, ButtonVariant } from "./ButtonParameters";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof Button> = {
   component: Button,
   argTypes: {
-    type: {
-      options: Object.values(ButtonType),
-      mapping: Object.values(ButtonType),
+    variant: {
+      options: Object.values(ButtonVariant),
+      mapping: Object.values(ButtonVariant),
       control: {
         type: "select",
-        labels: Object.keys(ButtonType),
+        labels: Object.keys(ButtonVariant),
       },
     },
     size: {
@@ -32,27 +32,27 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   args: {
     children: "label",
-    type: ButtonType.FILLED,
+    variant: ButtonVariant.FILLED,
   },
 };
 
 export const Outlined: Story = {
   args: {
     children: "label",
-    type: ButtonType.OUTLINED,
+    variant: ButtonVariant.OUTLINED,
   },
 };
 
 export const LightFilled: Story = {
   args: {
     children: "label",
-    type: ButtonType.LIGHT_FILLED,
+    variant: ButtonVariant.LIGHT_FILLED,
   },
 };
 
 export const Clear: Story = {
   args: {
     children: "label",
-    type: ButtonType.CLEAR,
+    variant: ButtonVariant.CLEAR,
   },
 };

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { COLORS, WEIGHTS } from "../../constants";
 
+import { Moment } from "moment";
+
 function ScheduleLine({
   time,
   duration,
@@ -8,7 +10,7 @@ function ScheduleLine({
   studio,
   url,
 }: {
-  time: Date;
+  time: Moment;
   duration: number;
   name: string;
   studio: string;
@@ -17,13 +19,7 @@ function ScheduleLine({
   return (
     <ScheduleLineWrapper href={url}>
       <TimeWrapper>
-        <Time>
-          {time.toLocaleString("en-US", {
-            hour: "numeric",
-            minute: "numeric",
-            hour12: true,
-          })}
-        </Time>
+        <Time>{time.format("h:mm A")}</Time>
         <Duration>{duration}’</Duration>
       </TimeWrapper>
 
@@ -39,7 +35,7 @@ const ScheduleLineWrapper = styled.a`
   gap: 32px;
 
   padding: 4px 8px;
-  border-radius: 32px;
+  border-radius: 10000px;
 
   &:hover {
     background-color: ${COLORS.lightblackblue[500]};
@@ -63,7 +59,7 @@ const Time = styled.span`
 
 const Duration = styled.span`
   padding: 2px 0px;
-  border-radius: 20px;
+  border-radius: 10000px;
 
   box-shadow: inset 0 0 0 1px ${COLORS.blackblue[500]};
 

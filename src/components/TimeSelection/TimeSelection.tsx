@@ -53,6 +53,7 @@ function TimeSelection() {
     <TimeSelectionWrapper>
       {(Object.keys(iconType) as IconType[]).map((type) => (
         <Icon
+          key={crypto.randomUUID()}
           type={type}
           selected={selected === type}
           handleClick={() => handleClick(type)}
@@ -66,7 +67,7 @@ const TimeSelectionWrapper = styled.div`
   display: flex;
 
   width: fit-content;
-  border-radius: 32px;
+  border-radius: 10000px;
 
   padding: 0px;
   gap: 0px;
@@ -82,7 +83,7 @@ const IconWrapper = styled.button`
   width: 32px;
   height: 32px;
 
-  border-radius: 32px;
+  border-radius: 10000px;
 
   &.selected {
     color: ${COLORS.offwhite};
