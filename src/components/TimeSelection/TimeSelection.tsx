@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { Sunrise, Sun, Sunset } from "lucide-react";
 
 import { COLORS } from "../../constants";
+import Button from "../Button";
+import { ButtonVariant } from "../Button/ButtonParameters";
 
 type IconType = "morning" | "day" | "evening";
 const iconType = {
@@ -26,7 +28,7 @@ function Icon({
 
   return (
     <IconWrapper
-      className={selected ? "selected" : undefined}
+      variant={selected ? ButtonVariant.FILLED : ButtonVariant.CLEAR}
       onClick={() => handleClick()}
     >
       <IconContent
@@ -75,28 +77,16 @@ const TimeSelectionWrapper = styled.div`
   background-color: ${COLORS.lightblackblue[500]};
 `;
 
-const IconWrapper = styled.button`
+const IconWrapper = styled(Button)`
   display: flex;
   justify-content: center;
   align-items: center;
 
   width: 32px;
   height: 32px;
+  padding: 0;
 
   border-radius: 10000px;
-
-  &.selected {
-    color: ${COLORS.offwhite};
-    background-color: ${COLORS.blackblue[500]};
-
-    &:hover {
-      background-color: ${COLORS.blackblue[400]};
-    }
-  }
-
-  &:hover:not(.selected) {
-    background-color: ${COLORS.lightblackblue[700]};
-  }
 `;
 
 export default TimeSelection;
