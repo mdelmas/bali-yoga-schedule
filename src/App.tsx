@@ -1,12 +1,14 @@
 import "./App.css";
 
-import useFirestoreData from "./hooks/useFirestoreData";
+import useFetchYogaClassesData from "./hooks/useFetchYogaClassesData";
 import { YogaClass } from "./types/YogaClass";
 import Button from "./components/Button";
 
 function App() {
-  const data = useFirestoreData<YogaClass>("classes");
-  console.log(data);
+  const dataDay = useFetchYogaClassesData<YogaClass>("18/10/24");
+  dataDay.forEach((doc) => {
+    console.log(doc);
+  });
 
   return (
     <>

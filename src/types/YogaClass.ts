@@ -1,5 +1,5 @@
 import { Moment } from "moment";
-export interface YogaClass {
+export interface RawData {
   id: string;
   date: string;
   time: string;
@@ -10,9 +10,10 @@ export interface YogaClass {
   price: string;
 }
 
-export interface FormattedYogaClass {
+export interface YogaClass {
   id: string;
-  time: Moment;
+  date: string;
+  momentDate: Moment;
   duration: number;
   name: string;
   studio: string;
