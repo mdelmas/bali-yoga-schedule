@@ -3,7 +3,7 @@ import { COLORS, WEIGHTS } from "../../constants";
 
 import { Moment } from "moment";
 
-function ScheduleLine({
+function YogaClassLine({
   time,
   duration,
   name,
@@ -87,4 +87,4 @@ const Studio = styled.span`
   max-width: 128px;
 `;
 
-export default ScheduleLine;
+export default YogaClassLine;

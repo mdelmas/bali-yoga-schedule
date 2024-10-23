@@ -24,7 +24,6 @@ function Icon({
   handleClick: () => void;
 }) {
   const IconContent = iconType[type];
-  console.log(IconContent);
 
   return (
     <IconWrapper

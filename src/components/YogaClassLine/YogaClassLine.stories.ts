@@ -1,16 +1,16 @@
-import ScheduleLine from "./ScheduleLine";
+import YogaClassLine from "./YogaClassLine";
 import moment from "moment";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-const meta: Meta<typeof ScheduleLine> = {
-  component: ScheduleLine,
+const meta: Meta<typeof YogaClassLine> = {
+  component: YogaClassLine,
   argTypes: {},
 };
 
 export default meta;
 
-type Story = StoryObj<typeof ScheduleLine>;
+type Story = StoryObj<typeof YogaClassLine>;
 
 export const Primary: Story = {
   args: {

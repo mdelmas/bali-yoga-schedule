@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-import ScheduleLine from "../ScheduleLine";
+import YogaClassLine from "../YogaClassLine";
 import { FormattedYogaClass } from "../../types/YogaClass";
 
-function Schedule({ classes }: { classes: FormattedYogaClass[] }) {
+function YogaClassesList({ classes }: { classes: FormattedYogaClass[] }) {
   return (
     <SchduleWrapper>
       {classes.map((yogaClass, i) => (
-        <ScheduleLine
+        <YogaClassLine
           key={yogaClass.id + i}
           time={yogaClass.time}
           duration={yogaClass.duration}
@@ -26,4 +26,4 @@ const SchduleWrapper = styled.div`
   gap: 4px;
 `;
 
-export default Schedule;
+export default YogaClassesList;
