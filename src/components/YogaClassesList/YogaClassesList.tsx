@@ -19,22 +19,27 @@ function YogaClassesList({
   const morningTreshold = moment(currentSelection.date).set("hour", 11);
   const eveningTreshold = moment(currentSelection.date).set("hour", 15);
 
-  const classes = data.filter((yogaClass) => {
-    if (yogaClass.momentDate.isSameOrBefore(moment())) {
-      return false;
-    }
+  const classes = data
+    .sort((classA, classB) => classA.momentDate.diff(classB.momentDate))
+    .filter((yogaClass) => {
+      if (yogaClass.momentDate.isSameOrBefore(moment())) {
+        return false;
+      }
 
-    switch (currentSelection.time) {
-      case TIME.Morning:
-        return yogaClass.momentDate.isBefore(morningTreshold);
-      case TIME.Day:
-        return yogaClass.momentDate.isBetween(morningTreshold, eveningTreshold);
-      case TIME.Evening:
-        return yogaClass.momentDate.isAfter(eveningTreshold);
-      default:
-        return true;
-    }
-  });
+      switch (currentSelection.time) {
+        case TIME.Morning:
+          return yogaClass.momentDate.isBefore(morningTreshold);
+        case TIME.Day:
+          return yogaClass.momentDate.isBetween(
+            morningTreshold,
+            eveningTreshold
+          );
+        case TIME.Evening:
+          return yogaClass.momentDate.isAfter(eveningTreshold);
+        default:
+          return true;
+      }
+    });
 
   if (isLoading) {
     return <Message>Loading...</Message>;
