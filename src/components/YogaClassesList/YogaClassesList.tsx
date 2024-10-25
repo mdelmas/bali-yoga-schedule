@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 import YogaClassLine from "../YogaClassLine";
 import { YogaClass } from "../../types/YogaClass";
-import { Selection, TIME } from "../Schedule/Schedule";
+import { Selection, TIME } from "../../types/Selection";
+
 import useFetchYogaClassesData from "../../hooks/useFetchYogaClassesData";
 import { useMemo } from "react";
 import moment from "moment";

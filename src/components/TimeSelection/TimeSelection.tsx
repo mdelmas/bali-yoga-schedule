@@ -5,13 +5,14 @@ import { Sunrise, Sun, Sunset } from "lucide-react";
 import { COLORS } from "../../constants";
 import Button from "../Button";
 import { ButtonVariant } from "../Button/ButtonParameters";
-import { TIME } from "../Schedule";
 
-type IconType = "morning" | "day" | "evening";
+import { TIME } from "../../types/Selection";
+
+type IconType = TIME.Morning | TIME.Day | TIME.Evening;
 const iconType = {
-  morning: Sunrise,
-  day: Sun,
-  evening: Sunset,
+  [TIME.Morning]: Sunrise,
+  [TIME.Day]: Sun,
+  [TIME.Evening]: Sunset,
 };
 
 function Icon({
@@ -43,16 +44,14 @@ function TimeSelection({
   selected,
   handleSelection,
 }: {
-  selected: TIME;
-  handleSelection: (time: TIME) => void;
+  selected: TIME | undefined;
+  handleSelection: (time: TIME | undefined) => void;
 }) {
-  // const [selected, setSelected] = React.useState<string | undefined>(undefined);
-
-  const handleClick = (clicked: keyof typeof iconType) => {
+  const handleClick = (clicked: TIME) => {
     if (selected === clicked) {
-      handleSelection("" as TIME);
+      handleSelection(undefined);
     } else {
-      handleSelection(clicked as TIME);
+      handleSelection(clicked);
     }
   };
 

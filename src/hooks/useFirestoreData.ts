@@ -3,8 +3,6 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebaseConfig"; // Assure-toi d'importer correctement ta config Firebase
 
 const useFirestoreData = <T extends { id: string }>(collectionName: string) => {
-  console.log("in useFirestoreData");
-
   const [data, setData] = useState<T[]>([]);
 
   const fetchData = useCallback(async () => {

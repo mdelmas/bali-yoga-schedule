@@ -4,18 +4,8 @@ import styled from "styled-components";
 import DateSelection from "../DateSelection";
 import TimeSelection from "../TimeSelection";
 
-import { Selection, TIME } from "../Schedule";
+import { Selection, TIME } from "../../types/Selection";
 import { Moment } from "moment";
-
-/*
-{
-  currentSelection,
-  setCurrentSelection,
-}: {
-  currentSelection: Selection;
-  setCurrentSelection React.Dispatch<React.SetStateAction<Selection>>];
-}
-*/
 
 function SelectionBar({
   currentSelection,
@@ -24,19 +14,13 @@ function SelectionBar({
   currentSelection: Selection;
   setCurrentSelection: React.Dispatch<React.SetStateAction<Selection>>;
 }) {
-  console.log(currentSelection.date, currentSelection.time);
-
   const handleDateSelection = (date: Moment) => {
-    console.log("in handleDateSelection", date);
-
     setCurrentSelection({
       ...currentSelection,
       date: date,
     });
   };
-  const handleTimeSelection = (time: TIME) => {
-    console.log("in handleTimeSelection", time);
-
+  const handleTimeSelection = (time: TIME | undefined) => {
     setCurrentSelection({
       ...currentSelection,
       time: time,

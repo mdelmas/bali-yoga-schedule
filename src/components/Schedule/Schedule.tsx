@@ -1,29 +1,16 @@
 import { useState } from "react";
 import styled from "styled-components";
-import moment, { Moment } from "moment";
+import moment from "moment";
 
 import SelectionBar from "../SelectionBar";
 import YogaClassesList from "../YogaClassesList";
-
-export enum TIME {
-  All = "",
-  Morning = "morning",
-  Day = "day",
-  Evening = "evening",
-}
-
-export type Selection = {
-  date: Moment;
-  time: TIME;
-};
+import { TIME, Selection } from "../../types/Selection";
 
 function Schedule() {
   const [currentSelection, setCurrentSelection] = useState<Selection>({
     date: moment(),
     time: TIME.All as TIME,
   });
-
-  console.log(currentSelection.date, currentSelection.time);
 
   return (
     <ScheduleWrapper>

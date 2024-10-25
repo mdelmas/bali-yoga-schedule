@@ -3,13 +3,11 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../config/firebaseConfig"; // Assure-toi d'importer correctement ta config Firebase
 import moment from "moment";
 
-import { RawData, YogaClass } from "../types/YogaClass";
+import { RawData } from "../types/YogaClass";
 
 const CLASSES_COLLECTION = "classes";
 
 const useFetchYogaClasses = <YogaClass>(date: string) => {
-  console.log("in useFetchYogaClasses");
-
   const [data, setData] = useState<YogaClass[]>([]);
 
   const fetchData = useCallback(async () => {
