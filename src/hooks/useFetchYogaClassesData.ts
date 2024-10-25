@@ -3,11 +3,13 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../config/firebaseConfig"; // Assure-toi d'importer correctement ta config Firebase
 import moment from "moment";
 
-import { RawData } from "../types/YogaClass";
+import { RawData, YogaClass } from "../types/YogaClass";
 
 const CLASSES_COLLECTION = "classes";
 
-const useFetchYogaClasses = <YogaClass>(date: string) => {
+const useFetchYogaClasses = (date: string) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasData, setHasData] = useState(false);
   const [data, setData] = useState<YogaClass[]>([]);
 
   const fetchData = useCallback(async () => {
@@ -38,17 +40,24 @@ const useFetchYogaClasses = <YogaClass>(date: string) => {
         } as YogaClass;
       });
 
-      setData(items);
+      setIsLoading(false);
+      if (items.length > 0) {
+        setData(items);
+        setHasData(true);
+      }
     } catch (error) {
+      setIsLoading(false);
       console.error("Error fetching data:", error);
     }
   }, [date]);
 
   useEffect(() => {
+    setIsLoading(true);
+    setHasData(false);
     fetchData();
   }, [fetchData]);
 
-  return data;
+  return { data: data, isLoading, hasData };
 };
 
 export default useFetchYogaClasses;
