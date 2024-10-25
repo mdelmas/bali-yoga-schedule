@@ -41,14 +41,18 @@ const AppWrapper = styled.div`
 
   max-width: 600px;
 
-  text-align: center;
-
   margin: 64px auto;
 
   min-height: 100%;
 `;
 
-const Header = styled.div``;
+const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 16px;
+`;
 const Logo = styled.img``;
 
 const Footer = styled.div`
