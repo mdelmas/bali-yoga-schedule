@@ -6,6 +6,7 @@ import moment from "moment";
 import { RawData, YogaClass } from "../types/YogaClass";
 
 const CLASSES_COLLECTION = "classes";
+
 const useFetchYogaClasses = <YogaClass>(date: string) => {
   console.log("in useFetchYogaClasses");
 

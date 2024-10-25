@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 import { Sunrise, Sun, Sunset } from "lucide-react";
@@ -6,6 +5,7 @@ import { Sunrise, Sun, Sunset } from "lucide-react";
 import { COLORS } from "../../constants";
 import Button from "../Button";
 import { ButtonVariant } from "../Button/ButtonParameters";
+import { TIME } from "../Schedule";
 
 type IconType = "morning" | "day" | "evening";
 const iconType = {
@@ -39,14 +39,20 @@ function Icon({
   );
 }
 
-function TimeSelection() {
-  const [selected, setSelected] = React.useState<string | undefined>(undefined);
+function TimeSelection({
+  selected,
+  handleSelection,
+}: {
+  selected: TIME;
+  handleSelection: (time: TIME) => void;
+}) {
+  // const [selected, setSelected] = React.useState<string | undefined>(undefined);
 
   const handleClick = (clicked: keyof typeof iconType) => {
     if (selected === clicked) {
-      setSelected(undefined);
+      handleSelection("" as TIME);
     } else {
-      setSelected(clicked);
+      handleSelection(clicked as TIME);
     }
   };
 

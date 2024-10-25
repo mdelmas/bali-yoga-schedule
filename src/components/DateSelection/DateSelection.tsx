@@ -1,5 +1,5 @@
 import React from "react";
-import moment from "moment";
+import moment, { Moment } from "moment";
 
 import styled from "styled-components";
 import Button from "../Button";
@@ -8,14 +8,20 @@ import { ButtonVariant } from "../Button/ButtonParameters";
 
 const DISPLAYED_DATES = 5;
 
-function DateSelection() {
+function DateSelection({
+  selected,
+  handleSelection,
+}: {
+  selected: Moment;
+  handleSelection: (moment: Moment) => void;
+}) {
   const dates = React.useMemo(() => {
     return new Array(DISPLAYED_DATES)
       .fill(0)
       .map((_, i) => moment().add(i, "days"));
   }, []);
 
-  const [selected, setSelected] = React.useState(dates[0]);
+  // const [selected, setSelected] = React.useState(dates[0]);
 
   return (
     <DateSelectionWrapper>
@@ -23,11 +29,11 @@ function DateSelection() {
         <DateWrapper key={crypto.randomUUID()}>
           <Button
             variant={
-              date === selected
+              date.isSame(selected, "day")
                 ? ButtonVariant.FILLED
                 : ButtonVariant.LIGHT_FILLED
             }
-            onClick={() => setSelected(date)}
+            onClick={() => handleSelection(date)}
           >
             <Day>
               {date
