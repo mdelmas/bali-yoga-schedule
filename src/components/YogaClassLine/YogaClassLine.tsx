@@ -83,7 +83,7 @@ const Duration = styled.span`
 
 const Name = styled.span`
   font-size: ${14 / 16}rem;
-  font-weight: ${WEIGHTS.semibold};
+  font-weight: ${WEIGHTS.medium};
 
   flex: 2;
 

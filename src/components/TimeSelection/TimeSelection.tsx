@@ -36,6 +36,7 @@ function Icon({
         color={selected ? COLORS.offwhite : COLORS.blackblue[500]}
         strokeWidth={2}
       />
+      <HoverText>{type}</HoverText>
     </IconWrapper>
   );
 }
@@ -83,6 +84,26 @@ const TimeSelectionWrapper = styled.div`
   /* background-color: ${COLORS.lightblackblue[500]}; */
 `;
 
+const HoverText = styled.span`
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+
+  background: ${COLORS.lightblackblue[300]};
+  color: ${COLORS.blackblue[500]};
+
+  padding: 5px 10px;
+  border-radius: 10000px;
+
+  font-size: ${10 / 16}rem;
+  line-height: ${16 / 16}rem;
+
+  opacity: 0;
+  transition: opacity 0.2s ease;
+
+  pointer-events: none;
+`;
+
 const IconWrapper = styled(Button)`
   display: flex;
   justify-content: center;
@@ -93,6 +114,25 @@ const IconWrapper = styled(Button)`
   padding: 0;
 
   border-radius: 10000px;
-`;
 
+  position: relative;
+
+  &:hover ${HoverText} {
+    opacity: 1;
+  }
+`;
+/*
+const IconButton = styled.button`
+  padding: 10px;
+  background: #3498db;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+
+  &:hover .hoverText {
+    opacity: 1;
+  }
+`;
+*/
 export default TimeSelection;
