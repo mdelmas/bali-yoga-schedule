@@ -39,11 +39,12 @@ const AppWrapper = styled.div`
   flex-direction: column;
   gap: 64px;
 
-  max-width: 600px;
-
-  margin: 64px auto;
-
   min-height: 100%;
+
+  max-width: 640px;
+
+  margin: 0 auto;
+  padding: 32px;
 `;
 
 const Header = styled.div`

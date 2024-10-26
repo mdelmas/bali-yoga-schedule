@@ -99,6 +99,10 @@ body {
   font-family: var(--font-family-sans-serif);
 }
 
+#root {
+}
+  /* padding: 64px 0; */
+
 /*
   Remove default button styles. We'll provide our own at the
   component level

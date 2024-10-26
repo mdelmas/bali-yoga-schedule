@@ -31,6 +31,8 @@ const ScheduleWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
+  flex: 1;
+
   gap: 32px;
 `;
 
