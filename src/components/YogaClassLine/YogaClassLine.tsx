@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLORS, WEIGHTS } from "../../constants";
+import { COLORS, QUERIES, WEIGHTS } from "../../constants";
 
 import { Moment } from "moment";
 
@@ -19,7 +19,7 @@ function YogaClassLine({
   return (
     <ScheduleLineWrapper href={url}>
       <TimeWrapper>
-        <Time>{time.format("h:mm A")}</Time>
+        <Time>{time.format("h:mmA")}</Time>
         <Duration>{duration}’</Duration>
       </TimeWrapper>
 
@@ -32,7 +32,7 @@ function YogaClassLine({
 const ScheduleLineWrapper = styled.a`
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: clamp(${16 / 16}rem, 8vw - ${16 / 16}rem, ${32 / 16}rem);
 
   padding: 4px 8px;
   border-radius: 10000px;
@@ -49,10 +49,15 @@ const TimeWrapper = styled.div`
 `;
 
 const Time = styled.span`
-  font-size: ${12 / 16}rem;
+  font-size: ${11 / 16}rem;
+  line-height: ${18 / 16}rem;
   font-weight: ${WEIGHTS.light};
 
-  width: 64px;
+  width: clamp(${32 / 16}rem, 32vw - ${64 / 16}rem, ${64 / 16}rem);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   text-align: right;
 `;
@@ -69,6 +74,11 @@ const Duration = styled.span`
 
   text-align: center;
   width: 32px;
+
+  display: none;
+  @media ${QUERIES.tabletAndUp} {
+    display: block;
+  }
 `;
 
 const Name = styled.span`
@@ -76,6 +86,10 @@ const Name = styled.span`
   font-weight: ${WEIGHTS.semibold};
 
   flex: 2;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Studio = styled.span`
@@ -85,6 +99,10 @@ const Studio = styled.span`
 
   flex: 1;
   max-width: 128px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export default YogaClassLine;

@@ -55,12 +55,19 @@ function DateSelection({
 const DateSelectionWrapper = styled.div`
   display: flex;
   gap: 16px;
+
+  height: 1lh;
+  line-height: ${48 / 16}rem;
+
+  flex-wrap: wrap;
+  overflow: hidden;
 `;
 
 const DateWrapper = styled.div`
-  min-width: 0;
-
   flex: 1 0;
+
+  height: 100%;
+  min-width: 96px;
 
   button {
     width: 100%;

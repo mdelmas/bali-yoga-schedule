@@ -72,13 +72,15 @@ function TimeSelection({
 const TimeSelectionWrapper = styled.div`
   display: flex;
 
+  align-self: center;
+
   width: fit-content;
   border-radius: 10000px;
 
   padding: 0px;
   gap: 0px;
 
-  background-color: ${COLORS.lightblackblue[500]};
+  /* background-color: ${COLORS.lightblackblue[500]}; */
 `;
 
 const IconWrapper = styled(Button)`
