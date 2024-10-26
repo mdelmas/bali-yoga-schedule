@@ -7,10 +7,12 @@ import {
   ButtonSize,
   ButtonVariant,
 } from "./components/Button/ButtonParameters";
+import DecorationOverlay from "./components/DecorationOverlay";
 
 function App() {
   return (
     <AppWrapper>
+      <DecorationOverlay />
       <Header>
         <Logo src="./logo.svg" />
         <Button variant={ButtonVariant.OUTLINED} size={ButtonSize.SMALL}>
@@ -30,11 +32,21 @@ function App() {
           any suggestion ✦
         </p>
       </Footer>
+
+      {/* <ContentWrapper></ContentWrapper> */}
     </AppWrapper>
   );
 }
 
+// const AppWrapper = styled.div`
+//   min-height: 100%;
+
+//   position: relative;
+// `;
+
 const AppWrapper = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   gap: 64px;
@@ -54,7 +66,9 @@ const Header = styled.div`
 
   gap: 16px;
 `;
-const Logo = styled.img``;
+const Logo = styled.img`
+  user-select: none;
+`;
 
 const Footer = styled.div`
   font-size: ${10 / 16}rem;

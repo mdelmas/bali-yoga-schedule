@@ -21,8 +21,6 @@ function DateSelection({
       .map((_, i) => moment().add(i, "days"));
   }, []);
 
-  // const [selected, setSelected] = React.useState(dates[0]);
-
   return (
     <DateSelectionWrapper>
       {dates.map((date) => (

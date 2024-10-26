@@ -23,10 +23,6 @@ function Schedule() {
   );
 }
 
-const StyledYogaClassesList = styled(YogaClassesList)`
-  flex: 1;
-  background-color: red;
-`;
 const ScheduleWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -34,6 +30,10 @@ const ScheduleWrapper = styled.div`
   flex: 1;
 
   gap: 32px;
+`;
+
+const StyledYogaClassesList = styled(YogaClassesList)`
+  flex: 1;
 `;
 
 export default Schedule;
