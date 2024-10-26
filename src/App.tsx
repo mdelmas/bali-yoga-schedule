@@ -13,6 +13,7 @@ function App() {
   return (
     <AppWrapper>
       <DecorationOverlay />
+
       <Header>
         <Logo src="./logo.svg" />
         <Button variant={ButtonVariant.OUTLINED} size={ButtonSize.SMALL}>
@@ -32,17 +33,9 @@ function App() {
           any suggestion ✦
         </p>
       </Footer>
-
-      {/* <ContentWrapper></ContentWrapper> */}
     </AppWrapper>
   );
 }
-
-// const AppWrapper = styled.div`
-//   min-height: 100%;
-
-//   position: relative;
-// `;
 
 const AppWrapper = styled.div`
   position: relative;
