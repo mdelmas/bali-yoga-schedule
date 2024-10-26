@@ -12,7 +12,7 @@ function App() {
   return (
     <AppWrapper>
       <Header>
-        <Logo src="../public/logo.svg" />
+        <Logo src="./logo.svg" />
         <Button variant={ButtonVariant.OUTLINED} size={ButtonSize.SMALL}>
           CANGGU
         </Button>
@@ -57,7 +57,7 @@ const Header = styled.div`
 const Logo = styled.img``;
 
 const Footer = styled.div`
-  font-size: ${12 / 16}rem;
+  font-size: ${10 / 16}rem;
 
   text-align: center;
 `;
