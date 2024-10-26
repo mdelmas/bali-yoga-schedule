@@ -2,12 +2,9 @@ import React from "react";
 
 const useMousePosition = () => {
   const [mousePosition, setMousePosition] = React.useState<{
-    x: number | null;
-    y: number | null;
-  }>({
-    x: null,
-    y: null,
-  });
+    x: number;
+    y: number;
+  } | null>(null);
 
   React.useEffect(() => {
     const updateMousePosition = (ev: MouseEvent) => {

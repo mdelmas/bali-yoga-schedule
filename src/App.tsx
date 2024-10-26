@@ -13,25 +13,26 @@ function App() {
   return (
     <AppWrapper>
       <DecorationOverlay />
-      <Header>
-        <Logo src="./logo.svg" />
-        <Button variant={ButtonVariant.OUTLINED} size={ButtonSize.SMALL}>
-          CANGGU
-        </Button>
-      </Header>
 
-      <Schedule />
-
-      <Footer>
-        <p>
-          Built and developped by{" "}
-          <Link href="https://github.com/mdelmas">@mdelmas</Link>
-        </p>
-        <p>
-          <Link href="mailto:morgane.delmas@pm.me">Shoot me a message</Link> for
-          any suggestion ✦
-        </p>
-      </Footer>
+      <ContentWrapper id="contentWrapper">
+        <Header>
+          <Logo src="./logo.svg" />
+          <Button variant={ButtonVariant.OUTLINED} size={ButtonSize.SMALL}>
+            CANGGU
+          </Button>
+        </Header>
+        <Schedule />
+        <Footer>
+          <p>
+            Built and developped by{" "}
+            <Link href="https://github.com/mdelmas">@mdelmas</Link>
+          </p>
+          <p>
+            <Link href="mailto:morgane.delmas@pm.me">Shoot me a message</Link>{" "}
+            for any suggestion ✦
+          </p>
+        </Footer>
+      </ContentWrapper>
 
       {/* <ContentWrapper></ContentWrapper> */}
     </AppWrapper>
@@ -53,10 +54,12 @@ const AppWrapper = styled.div`
 
   min-height: 100%;
 
-  max-width: 640px;
-
-  margin: 0 auto;
   padding: 32px;
+`;
+
+const ContentWrapper = styled.div`
+  max-width: 640px;
+  margin: 0 auto;
 `;
 
 const Header = styled.div`
