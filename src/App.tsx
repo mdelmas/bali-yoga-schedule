@@ -14,25 +14,23 @@ function App() {
     <AppWrapper>
       <DecorationOverlay />
 
-      <ContentWrapper id="contentWrapper">
-        <Header>
-          <Logo src="./logo.svg" />
-          <Button variant={ButtonVariant.OUTLINED} size={ButtonSize.SMALL}>
-            CANGGU
-          </Button>
-        </Header>
-        <Schedule />
-        <Footer>
-          <p>
-            Built and developped by{" "}
-            <Link href="https://github.com/mdelmas">@mdelmas</Link>
-          </p>
-          <p>
-            <Link href="mailto:morgane.delmas@pm.me">Shoot me a message</Link>{" "}
-            for any suggestion ✦
-          </p>
-        </Footer>
-      </ContentWrapper>
+      <Header>
+        <Logo src="./logo.svg" />
+        <Button variant={ButtonVariant.OUTLINED} size={ButtonSize.SMALL}>
+          CANGGU
+        </Button>
+      </Header>
+      <Schedule />
+      <Footer>
+        <p>
+          Built and developped by{" "}
+          <Link href="https://github.com/mdelmas">@mdelmas</Link>
+        </p>
+        <p>
+          <Link href="mailto:morgane.delmas@pm.me">Shoot me a message</Link> for
+          any suggestion ✦
+        </p>
+      </Footer>
     </AppWrapper>
   );
 }
@@ -40,22 +38,16 @@ function App() {
 const AppWrapper = styled.div`
   min-height: 100%;
 
-  position: relative;
-`;
-
-const ContentWrapper = styled.div`
-  position: relative;
-
   display: flex;
   flex-direction: column;
   gap: 64px;
-
-  min-height: 100%;
 
   padding: 32px;
 
   max-width: 640px;
   margin: 0 auto;
+
+  pointer-events: none;
 `;
 
 const Header = styled.div`
@@ -77,6 +69,7 @@ const Footer = styled.div`
 
 const Link = styled.a`
   text-decoration: underline;
+  pointer-events: auto;
 `;
 
 export default App;

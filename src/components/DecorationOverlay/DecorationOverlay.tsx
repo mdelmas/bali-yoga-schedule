@@ -1,11 +1,6 @@
 import styled from "styled-components";
-import useElementDimensions from "../../hooks/useElementDimensions";
-import { useRef, useState } from "react";
-import useMousePosition from "../../hooks/useMousePosition";
-import { X } from "lucide-react";
-
-import Button from "../Button";
-import { ButtonSize, ButtonVariant } from "../Button/ButtonParameters";
+import { RefObject, useRef, useState } from "react";
+import { motion, useDragControls } from "framer-motion";
 
 enum EMOJI {
   Coconut = "coconut",
@@ -34,24 +29,44 @@ const getRandomEmoji = () => {
 
 function EmojiImage({
   coordinates,
+  parentRef,
 }: {
   coordinates: { x: number; y: number };
+  parentRef: RefObject<HTMLElement>;
 }) {
-  const type = getRandomEmoji();
-  // const coordinates = { x: 50, y: 50 };
   const rotation = getRandomNumberBetween({ min: -30, max: 30 });
+  const [type, setType] = useState(getRandomEmoji());
+  const [isDragging, setIsDragging] = useState(false);
 
   return (
     <Image
       src={`./emoji/${type}.png`}
       $coordinates={coordinates}
       $rotation={rotation}
+      onClick={(event) => {
+        if (isDragging) {
+          event.stopPropagation();
+          setIsDragging(false);
+          return;
+        }
+        setType(getRandomEmoji());
+      }}
+      drag
+      dragConstraints={parentRef}
+      onDragStart={() => setIsDragging(true)}
+      onDragEnd={() => setIsDragging(false)}
+      style={{
+        rotate: rotation,
+        x: "-50%",
+        y: "-50%",
+      }}
     />
   );
 }
 
 function DecorationOverlay() {
-  const [emojiMode, setEmojiMode] = useState(false);
+  const ref = useRef<HTMLElement>(null);
+
   const [insertedEmojis, setInsertedEmojis] = useState(
     [] as React.ReactElement[]
   );
@@ -62,39 +77,22 @@ function DecorationOverlay() {
       <EmojiImage
         key={crypto.randomUUID()}
         coordinates={{ x: event.pageX, y: event.pageY }}
+        parentRef={ref}
       />,
     ]);
   };
 
   return (
-    <StyledDecorationOverlay
-      onClick={(event) => handleClick(event)}
-      $emojiMode={emojiMode}
-    >
-      {insertedEmojis}
-      <StyledButton
-        variant={emojiMode ? ButtonVariant.FILLED : ButtonVariant.LIGHT_FILLED}
-        size={ButtonSize.SMALL}
-        onClick={(event) => {
-          setEmojiMode(!emojiMode);
-          event.stopPropagation();
-        }}
-      >
-        {emojiMode ? <X size={10} /> : "play with emoji mode ✨"}
-      </StyledButton>
-    </StyledDecorationOverlay>
+    <>
+      <EmojiOverlay ref={ref as React.MutableRefObject<HTMLDivElement>}>
+        {insertedEmojis}
+      </EmojiOverlay>
+      <ClickableOverlay onClick={(event) => handleClick(event)} />
+    </>
   );
 }
-const StyledButton = styled(Button)`
-  position: absolute;
 
-  bottom: 32px;
-  right: 32px;
-
-  pointer-events: auto;
-`;
-
-const StyledDecorationOverlay = styled.div<{ $emojiMode: boolean }>`
+const ClickableOverlay = styled.div`
   min-height: 100%;
   width: 100%;
 
@@ -104,10 +102,33 @@ const StyledDecorationOverlay = styled.div<{ $emojiMode: boolean }>`
   right: 0;
   left: 0;
 
-  pointer-events: ${(props) => (props.$emojiMode ? "auto" : "none")};
+  height: 100%;
+  width: 100%;
+
+  z-index: -1;
+
+  pointer-events: auto;
 `;
 
-const Image = styled.img<{
+const EmojiOverlay = styled.div`
+  min-height: 100%;
+  width: 100%;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+
+  z-index: 1;
+
+  pointer-events: none;
+`;
+
+const Image = styled(motion.img)<{
   $coordinates: { x: number; y: number };
   $rotation: number;
 }>`
@@ -118,6 +139,9 @@ const Image = styled.img<{
   top: ${(props) => props.$coordinates.y}px;
   left: ${(props) => props.$coordinates.x}px;
   transform: translate(-50%, -50%) rotate(${(props) => props.$rotation}deg);
+
+  pointer-events: auto;
+  cursor: grab;
 `;
 
 export default DecorationOverlay;

@@ -37,6 +37,8 @@ const ScheduleLineWrapper = styled.a`
   padding: 4px 8px;
   border-radius: 10000px;
 
+  pointer-events: auto;
+
   &:hover {
     background-color: ${COLORS.lightblackblue[300]};
   }

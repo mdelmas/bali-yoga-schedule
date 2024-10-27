@@ -43,6 +43,8 @@ const StyledButton = styled.button<{
     const lineHeightPx = props.size === ButtonSize.MEDIUM ? 20 : 16;
     return lineHeightPx / 16;
   }}rem;
+
+  pointer-events: auto;
 `;
 
 const FilledButton = styled(StyledButton)`
