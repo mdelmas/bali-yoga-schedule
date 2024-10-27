@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { RefObject, useRef, useState } from "react";
-import { motion, useDragControls } from "framer-motion";
+import { RefObject, useRef, useState, useMemo } from "react";
+import { motion } from "framer-motion";
 
 enum EMOJI {
   Coconut = "coconut",
@@ -34,7 +34,11 @@ function EmojiImage({
   coordinates: { x: number; y: number };
   parentRef: RefObject<HTMLElement>;
 }) {
-  const rotation = getRandomNumberBetween({ min: -30, max: 30 });
+  const rotation = useMemo(
+    () => getRandomNumberBetween({ min: -30, max: 30 }),
+    []
+  );
+
   const [type, setType] = useState(getRandomEmoji());
   const [isDragging, setIsDragging] = useState(false);
 
