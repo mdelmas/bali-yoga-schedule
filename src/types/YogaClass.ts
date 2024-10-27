@@ -12,8 +12,7 @@ export interface RawData {
 
 export interface YogaClass {
   id: string;
-  date: string;
-  momentDate: Moment;
+  date: Moment;
   duration: number;
   name: string;
   studio: string;

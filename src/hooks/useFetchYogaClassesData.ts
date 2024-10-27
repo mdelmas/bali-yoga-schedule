@@ -26,8 +26,7 @@ const useFetchYogaClasses = (date: string) => {
         const rawYogaClass = doc.data() as RawData;
         return {
           id: doc.id,
-          date: rawYogaClass.date + " " + rawYogaClass.time,
-          momentDate: moment(
+          date: moment(
             rawYogaClass.date + " " + rawYogaClass.time,
             "DD/MM/YY h:mm A"
           ),

@@ -42,7 +42,7 @@ const AppWrapper = styled.div`
   flex-direction: column;
   gap: 64px;
 
-  padding: 32px;
+  padding: 48px 32px 32px 32px;
 
   max-width: 640px;
   margin: 0 auto;

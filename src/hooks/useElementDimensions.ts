@@ -17,7 +17,6 @@ const useElementDimensions = ({
 
   window.addEventListener("resize", refresh);
   window.addEventListener("scroll", refresh, true);
-
   useEffect(() => {
     refresh();
   }, [refresh, ref]);

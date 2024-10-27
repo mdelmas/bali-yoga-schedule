@@ -55,6 +55,9 @@ function EmojiImage({
         }
         setType(getRandomEmoji());
       }}
+      onDoubleClick={(event) => {
+        console.log("double clicked...", event);
+      }}
       drag
       dragConstraints={parentRef}
       onDragStart={() => setIsDragging(true)}

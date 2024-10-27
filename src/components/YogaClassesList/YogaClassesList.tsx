@@ -20,22 +20,19 @@ function YogaClassesList({
   const eveningTreshold = moment(currentSelection.date).set("hour", 15);
 
   const classes = data
-    .sort((classA, classB) => classA.momentDate.diff(classB.momentDate))
+    .sort((classA, classB) => classA.date.diff(classB.date))
     .filter((yogaClass) => {
-      if (yogaClass.momentDate.isSameOrBefore(moment())) {
+      if (yogaClass.date.isSameOrBefore(moment())) {
         return false;
       }
 
       switch (currentSelection.time) {
         case TIME.Morning:
-          return yogaClass.momentDate.isBefore(morningTreshold);
+          return yogaClass.date.isBefore(morningTreshold);
         case TIME.Day:
-          return yogaClass.momentDate.isBetween(
-            morningTreshold,
-            eveningTreshold
-          );
+          return yogaClass.date.isBetween(morningTreshold, eveningTreshold);
         case TIME.Evening:
-          return yogaClass.momentDate.isAfter(eveningTreshold);
+          return yogaClass.date.isAfter(eveningTreshold);
         default:
           return true;
       }
@@ -58,7 +55,7 @@ function YogaClassesList({
       {classes.map((yogaClass, i) => (
         <YogaClassLine
           key={yogaClass.id + i}
-          time={yogaClass.momentDate}
+          time={yogaClass.date}
           duration={yogaClass.duration}
           name={yogaClass.name}
           studio={yogaClass.studio}
