@@ -2,6 +2,10 @@ import styled from "styled-components";
 import useElementDimensions from "../../hooks/useElementDimensions";
 import { useRef, useState } from "react";
 import useMousePosition from "../../hooks/useMousePosition";
+import { X } from "lucide-react";
+
+import Button from "../Button";
+import { ButtonSize, ButtonVariant } from "../Button/ButtonParameters";
 
 enum EMOJI {
   Coconut = "coconut",
@@ -47,26 +51,12 @@ function EmojiImage({
 }
 
 function DecorationOverlay() {
-  // const ref = useRef<HTMLElement>(null);
-  // const { dimensions: documentDimensions } = useElementDimensions({ ref });
+  const [emojiMode, setEmojiMode] = useState(false);
   const [insertedEmojis, setInsertedEmojis] = useState(
     [] as React.ReactElement[]
   );
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("clicked!!");
-    console.log("event", event.pageX, event.pageY);
-    // console.log("mousePosition", mousePosition);
-    // if (!mousePosition) return;
-
-    const target = event.target as HTMLElement;
-
-    if (!target.closest("#contentWrapper")) {
-      console.log("clicked not on the interface");
-      // Place un emoji si le clic n'est pas sur l'interface
-      // placeEmoji(event.clientX, eevent.clientY);
-    }
-
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     setInsertedEmojis([
       ...insertedEmojis,
       <EmojiImage
@@ -76,31 +66,35 @@ function DecorationOverlay() {
     ]);
   };
 
-  /*
-  useEffect(() => {
-    const handleClick = (e) => {
-      if (!e.target.closest("#contentWrapper")) {
-        // Place un emoji si le clic n'est pas sur l'interface
-        placeEmoji(e.clientX, e.clientY);
-      }
-    };
-    document.addEventListener("click", handleClick);
-
-    return () => document.removeEventListener("click", handleClick);
-  }, []);
-  */
-
   return (
     <StyledDecorationOverlay
-      // ref={ref as React.MutableRefObject<HTMLDivElement>}
-      onClick={handleClick}
+      onClick={(event) => handleClick(event)}
+      $emojiMode={emojiMode}
     >
       {insertedEmojis}
+      <StyledButton
+        variant={emojiMode ? ButtonVariant.FILLED : ButtonVariant.LIGHT_FILLED}
+        size={ButtonSize.SMALL}
+        onClick={(event) => {
+          setEmojiMode(!emojiMode);
+          event.stopPropagation();
+        }}
+      >
+        {emojiMode ? <X size={10} /> : "play with emoji mode ✨"}
+      </StyledButton>
     </StyledDecorationOverlay>
   );
 }
+const StyledButton = styled(Button)`
+  position: absolute;
 
-const StyledDecorationOverlay = styled.button`
+  bottom: 32px;
+  right: 32px;
+
+  pointer-events: auto;
+`;
+
+const StyledDecorationOverlay = styled.div<{ $emojiMode: boolean }>`
   min-height: 100%;
   width: 100%;
 
@@ -110,9 +104,7 @@ const StyledDecorationOverlay = styled.button`
   right: 0;
   left: 0;
 
-  /* pointer-events: none; */
-
-  background-color: hsla(88, 50%, 50%, 0.5);
+  pointer-events: ${(props) => (props.$emojiMode ? "auto" : "none")};
 `;
 
 const Image = styled.img<{

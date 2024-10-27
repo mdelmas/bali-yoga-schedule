@@ -33,19 +33,17 @@ function App() {
           </p>
         </Footer>
       </ContentWrapper>
-
-      {/* <ContentWrapper></ContentWrapper> */}
     </AppWrapper>
   );
 }
 
-// const AppWrapper = styled.div`
-//   min-height: 100%;
-
-//   position: relative;
-// `;
-
 const AppWrapper = styled.div`
+  min-height: 100%;
+
+  position: relative;
+`;
+
+const ContentWrapper = styled.div`
   position: relative;
 
   display: flex;
@@ -55,9 +53,7 @@ const AppWrapper = styled.div`
   min-height: 100%;
 
   padding: 32px;
-`;
 
-const ContentWrapper = styled.div`
   max-width: 640px;
   margin: 0 auto;
 `;
