@@ -1,6 +1,7 @@
 import { addYogaClassToDB } from "./addDataToDB.js";
 import { fetchYogaClassesMomence } from "./getDataMomence.js";
 import { fetchYogaClassesChandra } from "./getDataChandra.js";
+import { fetchYogaClassesThePractice } from "./getDataThePractice.js";
 
 Promise.all([
   // fetchYogaClassesMomence({
@@ -13,7 +14,8 @@ Promise.all([
   //   studio: "Empowered Yoga",
   //   city: "Canggu",
   // }),
-  fetchYogaClassesChandra(),
+  // fetchYogaClassesChandra(),
+  fetchYogaClassesThePractice(),
 ])
   .then(async (results) => {
     const classes = results.flat();
