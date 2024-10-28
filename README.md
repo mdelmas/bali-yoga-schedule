@@ -22,8 +22,10 @@ firebase deploy
 [ ] remove date and replace by momentDate in YogaClass
 [ ] fix hover on time selection
 [ ] mettre à jour data pour novembre !!
+[ ] écrire scraping pour les sites possibles
 [x] host website with firebase <3
 [ ] style message "no classes"
 [ ] add loader when getting data
 [ ] add animations
 [ ] fix emoji issue on resize
+[ ] make distinction between classes already happened and classes to come for today
