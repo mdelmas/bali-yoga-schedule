@@ -1,24 +1,29 @@
-const puppeteer = require("puppeteer");
-const moment = require("moment");
+import puppeteer from "puppeteer";
+import moment from "moment";
 
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function fetchYogaClasses() {
-  console.log(moment());
-
+export async function fetchYogaClassesMomence({ url, studio, city }) {
   let visitedPages = 0;
 
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch();
+  // const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
-  await page.goto("https://www.thepathyogacenter.com/");
+  await page.goto(url);
 
   await delay(2000);
+
+  await page.waitForSelector(".momence-quick_filters-all");
+  const showAllButton = await page.$(".momence-quick_filters-all");
+
+  await showAllButton.click();
+  await delay(2000);
+
   await page.waitForSelector(".momence-host_schedule-session_list-item", {
     visible: true,
   });
-  console.log("page loaded");
 
   const classes = [];
 
@@ -27,18 +32,15 @@ async function fetchYogaClasses() {
 
   while (hasNextPage) {
     const data = await page.evaluate(() => {
-      console.log("evaluating page");
-
       const classList = [];
       const items = document.querySelectorAll(
         ".momence-host_schedule-session_list-item"
       );
-      console.log("items", items);
 
       items.forEach((item) => {
         console.log(item);
 
-        const title = item
+        const name = item
           .querySelector(".momence-host_schedule-session_list-item-title")
           ?.innerText.trim();
         const date = item
@@ -53,7 +55,7 @@ async function fetchYogaClasses() {
           ?.innerText.trim();
 
         classList.push({
-          title,
+          name,
           date,
           duration,
           price,
@@ -71,7 +73,7 @@ async function fetchYogaClasses() {
     const nextButton = await page.$(".momence-pagination_next_page");
 
     // Vérifier s'il y a une page suivante et cliquer sur le bouton
-    if (nextButton && visitedPages < 5) {
+    if (nextButton && visitedPages < 2) {
       await nextButton.click();
       await delay(2000);
     } else {
@@ -82,30 +84,27 @@ async function fetchYogaClasses() {
   await browser.close();
 
   const parsedClasses = classes.map((currentClass) => {
+    const date = currentClass.date.substring(
+      currentClass.date.indexOf(" ") + 1
+    );
+    const time = currentClass.duration.split("\n")[0];
+    const parsedDate = moment(date, "MMMM D, YYYY").format("DD/MM/YY");
+    // better for comparison with firebase to store separately, to change later probably...
+    // const parsedDate = moment(`${date} ${time}`, "MMMM D, YYYY h:mm A");
+
     const parsedClass = {
-      title: currentClass.title,
-      date: moment(
-        currentClass.date.substring(currentClass.date.indexOf(" ") + 1),
-        "MMMM D, YYYY"
-      ),
-      time: currentClass.duration.split("\n")[0],
+      date: parsedDate,
+      time: time,
       duration: parseInt(currentClass.duration.split("\n")[3]),
-      studio: "The Path",
-      city: "Canggu",
+      name: currentClass.name,
+      studio: studio,
+      city: city,
       price: currentClass.price.replace(/\D/g, ""),
+      url: url,
     };
+
     return parsedClass;
   });
 
   return parsedClasses;
 }
-
-fetchYogaClasses()
-  .then((classes) => {
-    console.log("classes: ", classes.length);
-    console.log(classes[classes.length - 1]);
-  })
-  .catch((err) => {
-    console.error(err);
-    s;
-  });
