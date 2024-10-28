@@ -35,7 +35,7 @@ const useFetchYogaClasses = (date: string) => {
           studio: rawYogaClass.studio,
           city: rawYogaClass.city,
           price: +rawYogaClass.price,
-          url: "",
+          url: rawYogaClass.url,
         } as YogaClass;
       });
 

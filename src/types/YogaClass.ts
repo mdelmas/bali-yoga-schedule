@@ -8,6 +8,7 @@ export interface RawData {
   studio: string;
   city: string;
   price: string;
+  url: string;
 }
 
 export interface YogaClass {
