@@ -1,0 +1,29 @@
+day,date,time,name,duration,studio,city,price
+monday,04/11/24,8:00 AM,Morning Flow & Meditation,60,Guan Yin,Canggu,140000
+monday,04/11/24,9:30 AM,Ashtanga Yoga (Intermediate),85,Guan Yin,Canggu,140000
+monday,04/11/24,11:15 AM,Yang to Yin,75,Guan Yin,Canggu,140000
+monday,04/11/24,4:30 PM,Vinyasa Flow,75,Guan Yin,Canggu,140000
+tuesday,05/11/24,8:00 AM,Morning Flow,60,Guan Yin,Canggu,140000
+tuesday,05/11/24,9:30 AM,Vinyasa Creative,75,Guan Yin,Canggu,140000
+tuesday,05/11/24,11:15 AM,Hatha Flow,75,Guan Yin,Canggu,140000
+tuesday,05/11/24,4:30 PM,Yin Yoga,75,Guan Yin,Canggu,140000
+wednesday,06/11/24,8:00 AM,Yang to Yin,60,Guan Yin,Canggu,140000
+wednesday,06/11/24,9:30 AM,Ashtanga Yoga (Intermediate),85,Guan Yin,Canggu,140000
+wednesday,06/11/24,11:15 AM,Vinyasa Flow,75,Guan Yin,Canggu,140000
+wednesday,06/11/24,4:30 PM,Sunset Flow,75,Guan Yin,Canggu,140000
+thursday,07/11/24,8:00 AM,Wake Up Flow,60,Guan Yin,Canggu,140000
+thursday,07/11/24,9:30 AM,Vinyasa Flow,75,Guan Yin,Canggu,140000
+thursday,07/11/24,11:15 AM,Mobility Yoga,75,Guan Yin,Canggu,140000
+thursday,07/11/24,4:30 PM,Yin Yoga,75,Guan Yin,Canggu,140000
+friday,08/11/24,8:00 AM,Yang to Yin,60,Guan Yin,Canggu,140000
+friday,08/11/24,9:30 AM,Ashtanga Yoga (Intermediate),85,Guan Yin,Canggu,140000
+friday,08/11/24,11:15 AM,Vinyasa Flow,75,Guan Yin,Canggu,140000
+friday,08/11/24,4:30 PM,Power Yoga,75,Guan Yin,Canggu,140000
+saturday,09/11/24,8:00 AM,Mat Pilates,60,Guan Yin,Canggu,140000
+saturday,09/11/24,9:30 AM,Vinyasa Flow,75,Guan Yin,Canggu,140000
+saturday,09/11/24,11:15 AM,Power Flow,75,Guan Yin,Canggu,140000
+saturday,09/11/24,4:30 PM,Sunset Flow,75,Guan Yin,Canggu,140000
+sunday,10/11/24,8:00 AM,Hatha Yoga,60,Guan Yin,Canggu,140000
+sunday,10/11/24,9:30 AM,Slow Flow,75,Guan Yin,Canggu,140000
+sunday,10/11/24,11:15 AM,Vinyasa Flow,75,Guan Yin,Canggu,140000
+sunday,10/11/24,4:30 PM,Power Yoga,75,Guan Yin,Canggu,140000

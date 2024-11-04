@@ -60,4 +60,4 @@ export async function fetchYogaClassesChandra() {
   return classes;
 }
 
-// fetchYogaClassesChandra().then((classes) => console.log(classes));
+fetchYogaClassesChandra().then((classes) => console.log(classes));

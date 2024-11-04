@@ -1,0 +1,81 @@
+day,date,time,name,duration,studio,city,price
+monday,04/11/24,7:45 AM,Sunrise Flow,75,Samadi,Canggu,N/A
+monday,04/11/24,9:30 AM,Vinyasa Flow,75,Samadi,Canggu,N/A
+monday,04/11/24,11:15 AM,Rocket Vinyasa,75,Samadi,Canggu,N/A
+monday,04/11/24,1:00 PM,Handstand,75,Samadi,Canggu,N/A
+monday,04/11/24,4:15 PM,Vinyasa Flow,75,Samadi,Canggu,N/A
+monday,04/11/24,6:00 PM,Yin,75,Samadi,Canggu,N/A
+monday,04/11/24,7:00 AM,Ashtanga Mysore (All Level),120,Samadi,Canggu,N/A
+monday,04/11/24,9:00 AM,Led Ashtanga Primary,75,Samadi,Canggu,N/A
+monday,04/11/24,10:45 AM,Hip Opening Flow,75,Samadi,Canggu,N/A
+monday,04/11/24,4:00 PM,Hot Yoga,60,Samadi,Canggu,N/A
+monday,04/11/24,5:15 PM,Hot Yoga,60,Samadi,Canggu,N/A
+monday,04/11/24,7:00 PM,Yin Candlelight,75,Samadi,Canggu,N/A
+tuesday,05/11/24,7:45 AM,Hatha,75,Samadi,Canggu,N/A
+tuesday,05/11/24,9:30 AM,Vinyasa,75,Samadi,Canggu,N/A
+tuesday,05/11/24,11:15 AM,Inversions,75,Samadi,Canggu,N/A
+tuesday,05/11/24,1:00 PM,Rehab Hatha,75,Samadi,Canggu,N/A
+tuesday,05/11/24,4:15 PM,Vinyasa Flow: JivaMukti,75,Samadi,Canggu,N/A
+tuesday,05/11/24,6:00 PM,5 Elements Yin Yoga,75,Samadi,Canggu,N/A
+tuesday,05/11/24,7:00 AM,Ashtanga Mysore (All Level),120,Samadi,Canggu,N/A
+tuesday,05/11/24,9:00 AM,Led Ashtanga Primary,75,Samadi,Canggu,N/A
+tuesday,05/11/24,10:45 AM,Beginners Flow,75,Samadi,Canggu,N/A
+tuesday,05/11/24,4:00 PM,Hot Yoga Stretching,60,Samadi,Canggu,N/A
+tuesday,05/11/24,5:15 PM,Hot Yoga,60,Samadi,Canggu,N/A
+tuesday,05/11/24,7:00 PM,Soundhealing Journey,75,Samadi,Canggu,N/A
+wednesday,06/11/24,7:45 AM,Hatha,75,Samadi,Canggu,N/A
+wednesday,06/11/24,9:30 AM,Vinyasa Flow,75,Samadi,Canggu,N/A
+wednesday,06/11/24,11:15 AM,Gentle Flow,75,Samadi,Canggu,N/A
+wednesday,06/11/24,1:00 PM,Aerial Yoga,75,Samadi,Canggu,N/A
+wednesday,06/11/24,4:15 PM,Flow & Sound,75,Samadi,Canggu,N/A
+wednesday,06/11/24,6:00 PM,Yin,75,Samadi,Canggu,N/A
+wednesday,06/11/24,7:00 AM,Ashtanga Mysore (All Level),120,Samadi,Canggu,N/A
+wednesday,06/11/24,9:00 AM,Led Ashtanga Primary,75,Samadi,Canggu,N/A
+wednesday,06/11/24,10:45 AM,Hatha Flow,75,Samadi,Canggu,N/A
+wednesday,06/11/24,7:00 PM,Breathwork & Yoga Nidra,75,Samadi,Canggu,N/A
+thursday,07/11/24,7:45 AM,Hatha,75,Samadi,Canggu,N/A
+thursday,07/11/24,9:30 AM,Vinyasa,75,Samadi,Canggu,N/A
+thursday,07/11/24,11:15 AM,Yin Yang,75,Samadi,Canggu,N/A
+thursday,07/11/24,1:00 PM,Handstand,75,Samadi,Canggu,N/A
+thursday,07/11/24,4:15 PM,Vinyasa Flow,75,Samadi,Canggu,N/A
+thursday,07/11/24,6:00 PM,5 Elements Yin Yoga,75,Samadi,Canggu,N/A
+thursday,07/11/24,7:00 AM,Ashtanga Mysore (All Level),120,Samadi,Canggu,N/A
+thursday,07/11/24,9:00 AM,Led Ashtanga Primary,75,Samadi,Canggu,N/A
+thursday,07/11/24,10:45 AM,Beginners Yoga,75,Samadi,Canggu,N/A
+thursday,07/11/24,4:00 PM,Hot Vinyasa Yoga,60,Samadi,Canggu,N/A
+thursday,07/11/24,5:15 PM,Hot Yoga,60,Samadi,Canggu,N/A
+thursday,07/11/24,7:00 PM,Yin Candlelight,75,Samadi,Canggu,N/A
+friday,08/11/24,7:45 AM,Power Yoga,75,Samadi,Canggu,N/A
+friday,08/11/24,9:30 AM,Vinyasa Flow,75,Samadi,Canggu,N/A
+friday,08/11/24,11:15 AM,Power Yoga,75,Samadi,Canggu,N/A
+friday,08/11/24,1:00 PM,Rehab Hatha,75,Samadi,Canggu,N/A
+friday,08/11/24,4:15 PM,Vinyasa Flow: JivaMukti,75,Samadi,Canggu,N/A
+friday,08/11/24,6:00 PM,Yin,75,Samadi,Canggu,N/A
+friday,08/11/24,7:00 AM,Ashtanga Mysore (All Level),120,Samadi,Canggu,N/A
+friday,08/11/24,9:00 AM,Led Ashtanga Primary,75,Samadi,Canggu,N/A
+friday,08/11/24,10:45 AM,Gentle Flow,75,Samadi,Canggu,N/A
+friday,08/11/24,4:00 PM,Hot Yoga,60,Samadi,Canggu,N/A
+friday,08/11/24,5:15 PM,Hot Yoga Stretching,60,Samadi,Canggu,N/A
+friday,08/11/24,7:00 PM,Soundhealing Journey,75,Samadi,Canggu,N/A
+saturday,09/11/24,7:45 AM,Gentle Flow,75,Samadi,Canggu,N/A
+saturday,09/11/24,9:30 AM,Vinyasa Flow,75,Samadi,Canggu,N/A
+saturday,09/11/24,11:15 AM,Rocket Vinyasa,75,Samadi,Canggu,N/A
+saturday,09/11/24,1:00 PM,Yoga Basics,75,Samadi,Canggu,N/A
+saturday,09/11/24,4:15 PM,Vinyasa Flow,75,Samadi,Canggu,N/A
+saturday,09/11/24,6:00 PM,Yin & Sound Healing,75,Samadi,Canggu,N/A
+saturday,09/11/24,7:00 AM,Ashtanga Mysore (All Level),120,Samadi,Canggu,N/A
+saturday,09/11/24,9:00 AM,Led Ashtanga Primary,75,Samadi,Canggu,N/A
+saturday,09/11/24,10:45 AM,Hip Opening Flow,75,Samadi,Canggu,N/A
+saturday,09/11/24,7:00 PM,Breathwork & Yoga Nidra,75,Samadi,Canggu,N/A
+sunday,10/11/24,7:45 AM,Sunbeam Vinyasa,75,Samadi,Canggu,N/A
+sunday,10/11/24,9:30 AM,Vinyasa,75,Samadi,Canggu,N/A
+sunday,10/11/24,11:15 AM,Gentle Flow,75,Samadi,Canggu,N/A
+sunday,10/11/24,1:00 PM,Soundhealing,75,Samadi,Canggu,N/A
+sunday,10/11/24,4:15 PM,Vinyasa Flow,75,Samadi,Canggu,N/A
+sunday,10/11/24,6:00 PM,Yin,75,Samadi,Canggu,N/A
+sunday,10/11/24,7:00 AM,Ashtanga Mysore (All Level),120,Samadi,Canggu,N/A
+sunday,10/11/24,9:00 AM,Led Ashtanga Primary,75,Samadi,Canggu,N/A
+sunday,10/11/24,10:45 AM,Ashtanga Beginners,75,Samadi,Canggu,N/A
+sunday,10/11/24,4:00 PM,Hot Yoga,60,Samadi,Canggu,N/A
+sunday,10/11/24,5:15 PM,Hot Yoga,60,Samadi,Canggu,N/A
+sunday,10/11/24,7:00 PM,Yin Stretch,75,Samadi,Canggu,N/A

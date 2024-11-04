@@ -2,6 +2,7 @@ import { addYogaClassToDB } from "./addDataToDB.js";
 import { fetchYogaClassesMomence } from "./getDataMomence.js";
 import { fetchYogaClassesChandra } from "./getDataChandra.js";
 import { fetchYogaClassesThePractice } from "./getDataThePractice.js";
+import { getDataFromCSV, STUDIOS } from "./getDataFromCSV.js";
 
 Promise.all([
   // fetchYogaClassesMomence({
@@ -15,7 +16,9 @@ Promise.all([
   //   city: "Canggu",
   // }),
   // fetchYogaClassesChandra(),
-  fetchYogaClassesThePractice(),
+  // fetchYogaClassesThePractice(),
+  getDataFromCSV(STUDIOS.samadi),
+  getDataFromCSV(STUDIOS.guanYin),
 ])
   .then(async (results) => {
     const classes = results.flat();
