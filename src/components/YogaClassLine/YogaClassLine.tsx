@@ -17,7 +17,7 @@ function YogaClassLine({
   url: string;
 }) {
   return (
-    <ScheduleLineWrapper href={url}>
+    <ScheduleLineWrapper href={url} target="_blank" rel="noopener noreferrer">
       <TimeWrapper>
         <Time>{time.format("h:mmA")}</Time>
         {!Number.isNaN(duration) && <Duration>{duration}’</Duration>}
@@ -70,7 +70,7 @@ const Duration = styled.span`
   padding: 2px 0px;
   border-radius: 10000px;
 
-  box-shadow: inset 0 0 0 1px ${COLORS.blackblue[500]};
+  box-shadow: inset 0 0 0 1px;
 
   line-height: ${14 / 16}rem;
   font-size: ${10 / 16}rem;

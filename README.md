@@ -19,10 +19,10 @@ firebase deploy
 [ ] add hover with infos on the class + icon to link to the website
 [ ] refacto db and add table for studios with URL and price
 [x] decoration (draggable): emoji, flower png
-[ ] remove date and replace by momentDate in YogaClass
+[x] remove date and replace by momentDate in YogaClass
 [ ] fix hover on time selection
-[ ] mettre à jour data pour novembre !!
-[ ] écrire scraping pour les sites possibles
+[x] mettre à jour data pour novembre !!
+[x] écrire scraping pour les sites pdossibles
 [x] host website with firebase <3
 [ ] style message "no classes"
 [ ] add loader when getting data

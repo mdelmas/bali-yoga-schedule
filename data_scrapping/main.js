@@ -5,18 +5,18 @@ import { fetchYogaClassesThePractice } from "./getDataThePractice.js";
 import { getDataFromCSV, STUDIOS } from "./getDataFromCSV.js";
 
 Promise.all([
-  // fetchYogaClassesMomence({
-  //   url: "https://www.thepathyogacenter.com/studio-classes",
-  //   studio: "The Path",
-  //   city: "Canggu",
-  // }),
-  // fetchYogaClassesMomence({
-  //   url: "https://momence.com/u/empowered-yoga-with-bwork-bali",
-  //   studio: "Empowered Yoga",
-  //   city: "Canggu",
-  // }),
-  // fetchYogaClassesChandra(),
-  // fetchYogaClassesThePractice(),
+  fetchYogaClassesMomence({
+    url: "https://www.thepathyogacenter.com/studio-classes",
+    studio: "The Path",
+    city: "Canggu",
+  }),
+  fetchYogaClassesMomence({
+    url: "https://momence.com/u/empowered-yoga-with-bwork-bali",
+    studio: "Empowered Yoga",
+    city: "Canggu",
+  }),
+  fetchYogaClassesChandra(),
+  fetchYogaClassesThePractice(),
   getDataFromCSV(STUDIOS.samadi),
   getDataFromCSV(STUDIOS.guanYin),
 ])
