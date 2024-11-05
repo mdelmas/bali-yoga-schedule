@@ -20,7 +20,9 @@ function YogaClassLine({
     <ScheduleLineWrapper href={url} target="_blank" rel="noopener noreferrer">
       <TimeWrapper>
         <Time>{time.format("h:mmA")}</Time>
-        {!Number.isNaN(duration) && <Duration>{duration}’</Duration>}
+        <DurationWrapper>
+          {!Number.isNaN(duration) && <Duration>{duration}’</Duration>}
+        </DurationWrapper>
       </TimeWrapper>
 
       <Name>{name}</Name>
@@ -47,9 +49,7 @@ const ScheduleLineWrapper = styled.a`
 const TimeWrapper = styled.div`
   display: flex;
 
-  gap: 8px;
-
-  width: 104px;
+  gap: 16px;
 `;
 
 const Time = styled.span`
@@ -57,7 +57,7 @@ const Time = styled.span`
   line-height: ${18 / 16}rem;
   font-weight: ${WEIGHTS.light};
 
-  width: clamp(${32 / 16}rem, 32vw - ${64 / 16}rem, ${64 / 16}rem);
+  width: clamp(${32 / 16}rem, 32vw - ${48 / 16}rem, ${48 / 16}rem);
 
   white-space: nowrap;
   overflow: hidden;
@@ -66,23 +66,28 @@ const Time = styled.span`
   text-align: right;
 `;
 
-const Duration = styled.span`
-  padding: 2px 0px;
-  border-radius: 10000px;
-
-  box-shadow: inset 0 0 0 1px;
-
-  line-height: ${14 / 16}rem;
-  font-size: ${10 / 16}rem;
-  font-weight: ${WEIGHTS.medium};
-
-  text-align: center;
+const DurationWrapper = styled.div`
   width: 32px;
 
   display: none;
   @media ${QUERIES.tabletAndUp} {
     display: block;
   }
+`;
+
+const Duration = styled.div`
+  padding: 2px 0px;
+  border-radius: 10000px;
+
+  box-shadow: inset 0 0 0 1px;
+
+  width: 100%;
+
+  line-height: ${14 / 16}rem;
+  font-size: ${10 / 16}rem;
+  font-weight: ${WEIGHTS.medium};
+
+  text-align: center;
 `;
 
 const Name = styled.span`
