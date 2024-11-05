@@ -11,7 +11,6 @@ const spin = keyframes`
   }
 `;
 
-// Composant Styled pour le loader
 const LoaderWrapper = styled.div`
   width: 32px;
   aspect-ratio: 1;
@@ -21,14 +20,13 @@ const LoaderWrapper = styled.div`
 const Arc = styled.svg`
   width: 100%;
   height: 100%;
-  transform: rotate(-90deg); /* Optionnel : démarre l'arc en haut */
 
   animation: ${spin} 1s infinite linear;
 
   circle {
     fill: none;
     stroke-width: 6;
-    stroke-linecap: round; /* Arrondit les bords */
+    stroke-linecap: round;
   }
 `;
 

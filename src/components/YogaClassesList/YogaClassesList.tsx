@@ -13,11 +13,9 @@ function YogaClassesList({
 }: {
   currentSelection: Selection;
 }) {
-  let { data, isLoading, hasData } = useFetchYogaClassesData(
+  const { data, isLoading, hasData } = useFetchYogaClassesData(
     currentSelection.date.format("DD/MM/YY")
   );
-
-  isLoading = true;
 
   if (isLoading) {
     return (
