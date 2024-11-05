@@ -117,8 +117,10 @@ const IconWrapper = styled(Button)`
 
   position: relative;
 
-  &:hover ${HoverText} {
-    opacity: 1;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover ${HoverText} {
+      opacity: 1;
+    }
   }
 `;
 /*
