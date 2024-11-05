@@ -49,9 +49,6 @@ table {
 
 /* DESIGN TOKENS */
 html {
-  --colors-offwhite: ${COLORS.offwhite};
-  --colors-blackblue: ${COLORS.blackblue[500]};
-  --colors-lightblackblue: ${COLORS.lightblackblue[500]};
 
   --font-weight-light: ${WEIGHTS.light};
   --font-weight-normal: ${WEIGHTS.regular};
@@ -91,17 +88,17 @@ html {
 
 html, body, #root {
   height: 100%;
+  scrollbar-gutter: stable;
 }
 
 body {
-  color: var(--color-offblack);
-  background-color: var(--color-offwhite);
+  color: ${COLORS.blackblue[500]};
+  background-color: ${COLORS.offwhite};
   font-family: var(--font-family-sans-serif);
 }
 
 #root {
 }
-  /* padding: 64px 0; */
 
 /*
   Remove default button styles. We'll provide our own at the
