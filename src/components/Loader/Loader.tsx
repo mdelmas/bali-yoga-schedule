@@ -16,14 +16,15 @@ const LoaderWrapper = styled.div`
   width: 32px;
   aspect-ratio: 1;
   display: block;
-
-  animation: ${spin} 1s infinite linear;
 `;
 
 const Arc = styled.svg`
   width: 100%;
   height: 100%;
   transform: rotate(-90deg); /* Optionnel : démarre l'arc en haut */
+
+  animation: ${spin} 1s infinite linear;
+
   circle {
     fill: none;
     stroke-width: 6;
