@@ -22,10 +22,10 @@ firebase deploy
 [x] mettre à jour data pour novembre !!
 [x] écrire scraping pour les sites pdossibles
 [x] host website with firebase <3
-[ ] add hover with infos on the class + icon to link to the website
-[ ] style message "no classes"
+[x] style message "no classes"
 [x] add loader when getting data
-[ ] add animations
 [ ] fix emoji issue on resize
+[ ] add animations
+[ ] add hover with infos on the class + icon to link to the website
 [-] make distinction between classes already happened and classes to come for today
 [ ] refacto db and add table for studios with URL and price

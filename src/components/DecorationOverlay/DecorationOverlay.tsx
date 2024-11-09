@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { RefObject, useRef, useState, useMemo } from "react";
+import { RefObject, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 enum EMOJI {
@@ -15,6 +15,15 @@ enum EMOJI {
   WomanSurfing = "woman-surfing",
 }
 
+type EmojiInfos = {
+  id: string;
+  coordinates: { x: number; y: number };
+  type: EMOJI;
+  rotation: number;
+};
+
+const EMOJI_SIZE = 24;
+
 const getRandomNumberBetween = ({ min, max }: { min: number; max: number }) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
@@ -27,45 +36,48 @@ const getRandomEmoji = () => {
   return Object.values(EMOJI)[random] as EMOJI;
 };
 
-function EmojiImage({
+function Emoji({
   coordinates,
+  type,
+  rotation,
   parentRef,
+  handleClick,
+  handleDoubleClick,
 }: {
+  id: string;
   coordinates: { x: number; y: number };
+  type: EMOJI;
+  rotation: number;
   parentRef: RefObject<HTMLElement>;
+  handleClick: () => void;
+  handleDoubleClick: () => void;
 }) {
-  const rotation = useMemo(
-    () => getRandomNumberBetween({ min: -30, max: 30 }),
-    []
-  );
-
-  const [type, setType] = useState(getRandomEmoji());
   const [isDragging, setIsDragging] = useState(false);
 
   return (
     <Image
       src={`./emoji/${type}.png`}
-      $coordinates={coordinates}
-      $rotation={rotation}
       onClick={(event) => {
         if (isDragging) {
           event.stopPropagation();
           setIsDragging(false);
           return;
         }
-        setType(getRandomEmoji());
+
+        handleClick();
       }}
-      onDoubleClick={(event) => {
-        console.log("double clicked...", event);
+      onDoubleClick={() => {
+        handleDoubleClick();
       }}
+      initial={coordinates}
       drag
       dragConstraints={parentRef}
       onDragStart={() => setIsDragging(true)}
       onDragEnd={() => setIsDragging(false)}
       style={{
         rotate: rotation,
-        x: "-50%",
-        y: "-50%",
+        x: `-${EMOJI_SIZE / 2}px`,
+        y: `-${EMOJI_SIZE / 2}px`,
       }}
     />
   );
@@ -74,27 +86,51 @@ function EmojiImage({
 function DecorationOverlay() {
   const ref = useRef<HTMLElement>(null);
 
-  const [insertedEmojis, setInsertedEmojis] = useState(
-    [] as React.ReactElement[]
-  );
+  const [insertedEmojis, setInsertedEmojis] = useState<EmojiInfos[]>([]);
 
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+  const addEmoji = (event: React.MouseEvent<HTMLDivElement>) => {
     setInsertedEmojis([
       ...insertedEmojis,
-      <EmojiImage
-        key={crypto.randomUUID()}
-        coordinates={{ x: event.pageX, y: event.pageY }}
-        parentRef={ref}
-      />,
+      {
+        id: crypto.randomUUID(),
+        coordinates: { x: event.pageX, y: event.pageY },
+        rotation: getRandomNumberBetween({ min: -30, max: 30 }),
+        type: getRandomEmoji(),
+      },
     ]);
+  };
+
+  const changeEmoji = (id: string) => {
+    setInsertedEmojis(
+      insertedEmojis.map((emoji) => {
+        let newType;
+        do {
+          newType = getRandomEmoji();
+        } while (newType === emoji.type);
+
+        return emoji.id === id ? { ...emoji, type: newType } : emoji;
+      })
+    );
+  };
+
+  const removeEmoji = (id: string) => {
+    setInsertedEmojis(insertedEmojis.filter((emoji) => emoji.id !== id));
   };
 
   return (
     <>
       <EmojiOverlay ref={ref as React.MutableRefObject<HTMLDivElement>}>
-        {insertedEmojis}
+        {insertedEmojis.map((emoji) => (
+          <Emoji
+            key={emoji.id}
+            {...emoji}
+            parentRef={ref}
+            handleClick={() => changeEmoji(emoji.id)}
+            handleDoubleClick={() => removeEmoji(emoji.id)}
+          />
+        ))}
       </EmojiOverlay>
-      <ClickableOverlay onClick={(event) => handleClick(event)} />
+      <ClickableOverlay onClick={(event) => addEmoji(event)} />
     </>
   );
 }
@@ -135,17 +171,11 @@ const EmojiOverlay = styled.div`
   pointer-events: none;
 `;
 
-const Image = styled(motion.img)<{
-  $coordinates: { x: number; y: number };
-  $rotation: number;
-}>`
-  height: 24px;
-  width: 24px;
+const Image = styled(motion.img)`
+  height: ${EMOJI_SIZE}px;
+  width: ${EMOJI_SIZE}px;
 
   position: absolute;
-  top: ${(props) => props.$coordinates.y}px;
-  left: ${(props) => props.$coordinates.x}px;
-  transform: translate(-50%, -50%) rotate(${(props) => props.$rotation}deg);
 
   pointer-events: auto;
   cursor: grab;
